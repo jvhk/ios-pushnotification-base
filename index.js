@@ -1,6 +1,8 @@
+require('dotenv').config();
+
 const azure = require('azure-sb');  //service bus da azure
 
-const notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
+const notificationHubService = azure.createNotificationHubService(process.env.HUB_NAME,process.env.CONNECTION_STRING);
 
 // especifico para IOS
 let payload={
