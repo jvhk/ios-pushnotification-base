@@ -33,7 +33,7 @@ function processMessage(sbService, err, lockedMsg) {
 
 var idx = 0;
 function sendMessages(sbService, queueName) {
-  var msg = 'Message # ' + (++idx);
+  let msg = 'Message #'  + (++idx);
   sbService.sendQueueMessage(queueName, msg, function (err) {
    if (err) {
      console.log('Failed Tx: ', err);
@@ -43,7 +43,7 @@ function sendMessages(sbService, queueName) {
   });
 }
 
-let connStr = process.argv[2] || process.env.CONNECTION_STRING;
+let connStr = process.argv[2] || process.env.SERVICE_BUS;
 if (!connStr) throw new Error('Must provide connection string');
 let queueName = 'sbqtest';
 
